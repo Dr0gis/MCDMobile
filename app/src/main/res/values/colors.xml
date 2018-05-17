@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/color_blue</color>
+    <color name="colorPrimaryDark">@color/color_separator</color>
+    <color name="colorAccent">@color/color_black</color>
+    <color name="color_blue">#1782dd</color>
+    <color name="color_blue_hover">#2893ee</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_black">#000000</color>
+    <color name="color_separator">#cccccc</color>
+
+    <color name="color_text_title_toolbar">@color/color_black</color>
+    <color name="color_text_black">@color/color_black</color>
+</resources>

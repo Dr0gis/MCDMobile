@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size1dp">1dp</dimen>
+    <dimen name="size5dp">5dp</dimen>
+    <dimen name="size6dp">6dp</dimen>
+    <dimen name="size12dp">12dp</dimen>
+    <dimen name="size24dp">24dp</dimen>
+    <dimen name="size48dp">48dp</dimen>
+    <dimen name="size96dp">96dp</dimen>
+
+    <dimen name="padding_layout">@dimen/size24dp</dimen>
+    <dimen name="margin_input">@dimen/size12dp</dimen>
+    <dimen name="radius_background">30dp</dimen>
+    <dimen name="padding_input">@dimen/size12dp</dimen>
+    <dimen name="padding_input_top">@dimen/size24dp</dimen>
+
+    <dimen name="text_size11sp">11sp</dimen>
+    <dimen name="text_size13sp">13sp</dimen>
+    <dimen name="text_size15sp">15sp</dimen>
+    <dimen name="text_size17sp">17sp</dimen>
+    <dimen name="text_size20sp">20sp</dimen>
+    <dimen name="text_size22sp">22sp</dimen>
+
+    <dimen name="text_size_small">@dimen/text_size13sp</dimen>
+    <dimen name="text_size_middle">@dimen/text_size17sp</dimen>
+    <dimen name="text_size_big">@dimen/text_size22sp</dimen>
+
+    <dimen name="text_size_title_toolbar">@dimen/text_size_middle</dimen>
+    <dimen name="text_size_button_toolbar">@dimen/text_size_middle</dimen>
+</resources>

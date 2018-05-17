@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MCDMobile</string>
+
+    <string name="mcd_name">MCD</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="registration">Registration</string>
+
+    <string name="main">Main</string>
+
+</resources>
