@@ -15,14 +15,18 @@ class RegistrationFragment : LoginRegistrationFragment() {
     }
 
     override fun contentToTop() {
-        val layoutParams = registrationLL.layoutParams as ConstraintLayout.LayoutParams
-        layoutParams.verticalBias = 0.1F
-        registrationLL.layoutParams = layoutParams
+        if (registrationLL != null) {
+            val layoutParams = registrationLL.layoutParams as ConstraintLayout.LayoutParams
+            layoutParams.verticalBias = 0.1F
+            registrationLL.layoutParams = layoutParams
+        }
     }
 
     override fun contentToCenter() {
-        val layoutParams = registrationLL.layoutParams as ConstraintLayout.LayoutParams
-        layoutParams.verticalBias = 0.5F
-        registrationLL.layoutParams = layoutParams
+        if (registrationLL != null) {
+            val layoutParams = registrationLL.layoutParams as ConstraintLayout.LayoutParams
+            layoutParams.verticalBias = 0.5F
+            registrationLL.layoutParams = layoutParams
+        }
     }
 }

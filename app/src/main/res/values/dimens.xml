@@ -4,6 +4,7 @@
     <dimen name="size5dp">5dp</dimen>
     <dimen name="size6dp">6dp</dimen>
     <dimen name="size12dp">12dp</dimen>
+    <dimen name="size16dp">16dp</dimen>
     <dimen name="size24dp">24dp</dimen>
     <dimen name="size48dp">48dp</dimen>
     <dimen name="size96dp">96dp</dimen>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/used_drones"
+        android:textSize="@dimen/text_size_middle"
+        android:textColor="@color/color_text_black"
+        android:layout_centerHorizontal="true"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/usedDronesRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/activateDroneACB"
+        android:layout_below="@+id/titleTV"
+        android:layout_marginBottom="@dimen/size24dp"
+        android:layout_marginTop="@dimen/size24dp"
+        android:background="@drawable/background_box_border"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_used_drones">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/activateDroneACB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activate_drone"
+        android:textColor="@color/color_white"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_background_button"/>
+
+</RelativeLayout>

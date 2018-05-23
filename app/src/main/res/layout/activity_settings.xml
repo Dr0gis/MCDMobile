@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_blue_green"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.activites.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_box_radius"
+        android:layout_margin="@dimen/padding_layout">
+
+        <TextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textSize="@dimen/text_size_middle"
+            android:textColor="@color/color_text_black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="@dimen/size16dp"
+            android:paddingBottom="@dimen/size16dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/urlTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/url"
+            android:layout_below="@+id/titleTV"
+            android:padding="@dimen/size12dp"/>
+
+        <EditText
+            android:id="@+id/urlET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/urlTV"
+            android:layout_alignBaseline="@+id/urlTV"
+            android:layout_marginEnd="@dimen/size12dp"
+            android:hint="@string/url"
+            android:inputType="textUri"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

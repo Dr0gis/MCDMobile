@@ -12,48 +12,67 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_box_radius"
-        android:layout_margin="@dimen/padding_layout"
-        android:paddingBottom="@dimen/padding_layout">
+        android:layout_margin="@dimen/padding_layout">
 
         <LinearLayout
+            android:id="@+id/tabs_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="3">
 
             <TextView
+                android:id="@+id/logoutTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Drawer"
+                android:text="@string/logout"
                 android:textSize="@dimen/text_size_middle"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:paddingTop="@dimen/padding_layout"
-                android:paddingBottom="@dimen/padding_layout"/>
+                android:paddingTop="@dimen/size16dp"
+                android:paddingBottom="@dimen/size16dp"
+                android:background="@drawable/selector_background_left_main_button"
+                android:clickable="true"
+                android:focusable="true" />
 
             <TextView
+                android:id="@+id/mainTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/main"
-                android:textStyle="bold"
                 android:gravity="center"
                 android:textSize="@dimen/text_size_middle"
-                android:textColor="@color/color_text_black"
                 android:layout_weight="1"
-                android:paddingTop="@dimen/padding_layout"
-                android:paddingBottom="@dimen/padding_layout"/>
+                android:paddingTop="@dimen/size16dp"
+                android:paddingBottom="@dimen/size16dp"
+                android:background="@drawable/selector_background_center_main_button"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <TextView
+                android:id="@+id/profileTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Profile"
+                android:text="@string/profile"
                 android:textSize="@dimen/text_size_middle"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:paddingTop="@dimen/padding_layout"
-                android:paddingBottom="@dimen/padding_layout"/>
+                android:paddingTop="@dimen/size16dp"
+                android:paddingBottom="@dimen/size16dp"
+                android:background="@drawable/selector_background_right_main_button"
+                android:clickable="true"
+                android:focusable="true"/>
 
         </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/containerFL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tabs_ll"
+            android:padding="@dimen/padding_layout">
+
+        </FrameLayout>
 
     </RelativeLayout>
 

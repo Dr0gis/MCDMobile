@@ -23,6 +23,9 @@ class LoginRegistrationActivity : BaseActivity() {
     override fun init() {
         loginRegistrationVP.adapter = loginRegistrationPagerAdapter
         loginRegistrationCI.setViewPager(loginRegistrationVP)
+        settingsTV.setOnClickListener {
+            SettingsActivity.openActivity(this)
+        }
     }
 
     override fun onOpenKeyboard() {
