@@ -2,6 +2,7 @@ package team.corpore.`in`.mcdmobile.ui.fragments
 
 import kotlinx.android.synthetic.main.fragment_main.*
 import team.corpore.`in`.mcdmobile.R
+import team.corpore.`in`.mcdmobile.ui.activites.BarcodeReaderActivity
 import team.corpore.`in`.mcdmobile.ui.adapters.UsedDronesRecyclerAdapter
 
 class MainFragment : MainBaseFragment() {
@@ -18,8 +19,12 @@ class MainFragment : MainBaseFragment() {
 
         usedDronesRV.adapter = UsedDronesRecyclerAdapter(usedDronesList, object : UsedDronesRecyclerAdapter.DroneListener {
             override fun onDroneClick(position: Int) {
-                
+
             }
         })
+
+        activateDroneACB.setOnClickListener {
+            BarcodeReaderActivity.openActivity(context!!)
+        }
     }
 }

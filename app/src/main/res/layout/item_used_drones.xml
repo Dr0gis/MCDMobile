@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/padding_layout"
+        android:padding="@dimen/size16dp"
         android:weightSum="2">
 
         <TextView
