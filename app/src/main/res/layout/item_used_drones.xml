@@ -3,12 +3,38 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/itemTV"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/droneInfoLL"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/test_value"
-        android:textColor="@color/color_text_black"
-        android:textSize="@dimen/text_size_middle"/>
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_layout"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/droneNameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/test_value"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/text_size_middle"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/dateTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/test_value"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/text_size_middle"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size1dp"
+        android:background="@color/color_separator"
+        android:layout_below="@+id/droneInfoLL"/>
 
 </RelativeLayout>

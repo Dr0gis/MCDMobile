@@ -15,6 +15,11 @@ class MainFragment : MainBaseFragment() {
         usedDronesList.add("item 3")
         usedDronesList.add("item 4")
         usedDronesList.add("item 5")
-        usedDronesRV.adapter = UsedDronesRecyclerAdapter(usedDronesList)
+
+        usedDronesRV.adapter = UsedDronesRecyclerAdapter(usedDronesList, object : UsedDronesRecyclerAdapter.DroneListener {
+            override fun onDroneClick(position: Int) {
+                
+            }
+        })
     }
 }

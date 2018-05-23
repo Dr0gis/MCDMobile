@@ -7,12 +7,18 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_used_drones.view.*
 import team.corpore.`in`.mcdmobile.R
 
-class UsedDronesRecyclerAdapter(list: ArrayList<String>) : RecyclerView.Adapter<UsedDronesRecyclerAdapter.VH>() {
+class UsedDronesRecyclerAdapter(list: ArrayList<String>, clickListener: DroneListener) : RecyclerView.Adapter<UsedDronesRecyclerAdapter.VH>() {
+
+    interface DroneListener {
+        fun onDroneClick(position: Int)
+    }
 
     private var listDrones = ArrayList<String>()
+    private var clickListener: DroneListener
 
     init {
-        listDrones = list
+        this.listDrones = list
+        this.clickListener = clickListener
     }
 
     fun setData(list: ArrayList<String>) {
@@ -29,11 +35,19 @@ class UsedDronesRecyclerAdapter(list: ArrayList<String>) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         with (holder.itemView) {
-            itemTV.text = listDrones[position]
+            droneNameTV.text = listDrones[position]
         }
     }
 
     inner class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        init {
+            with(itemView) {
+                setOnClickListener {
+                    clickListener.onDroneClick(adapterPosition)
+                }
+            }
+        }
 
     }
 }
