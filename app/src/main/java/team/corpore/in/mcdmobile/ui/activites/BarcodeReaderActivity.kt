@@ -2,13 +2,18 @@ package team.corpore.`in`.mcdmobile.ui.activites
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.util.SparseArray
 import android.widget.Toast
 import com.google.android.gms.vision.barcode.Barcode
 import info.androidhive.barcode.BarcodeReader
 import kotlinx.android.synthetic.main.activity_barcode_reader.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import team.corpore.`in`.mcdmobile.R
+import team.corpore.`in`.mcdmobile.net.RetrofitClient
+import team.corpore.`in`.mcdmobile.net.model.ActivateDroneRequest
+import team.corpore.`in`.mcdmobile.utils.SharedUtils
 
 class BarcodeReaderActivity : BaseActivity(), BarcodeReader.BarcodeReaderListener {
     companion object {
@@ -47,7 +52,19 @@ class BarcodeReaderActivity : BaseActivity(), BarcodeReader.BarcodeReaderListene
     }
 
     override fun onScanned(barcode: Barcode) {
-        ControlDroneActivity.openActivity(this, barcode.displayValue)
+        RetrofitClient.getInstance().getService().activateDrone(ActivateDroneRequest(SharedUtils.getToken(), barcode.displayValue)).enqueue(object: Callback<Void> {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(this@BarcodeReaderActivity, t.message, Toast.LENGTH_SHORT).show()
+            }
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    ControlDroneActivity.openActivity(this@BarcodeReaderActivity, barcode.displayValue)
+                }
+                else {
+                    Toast.makeText(this@BarcodeReaderActivity, response.message() + " | " + response.errorBody()!!.string() + " | ", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
     }
 
     override fun onScanError(errorMessage: String) {

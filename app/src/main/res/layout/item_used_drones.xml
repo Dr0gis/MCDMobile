@@ -9,7 +9,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="@dimen/size16dp"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/droneNameTV"

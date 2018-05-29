@@ -6,14 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_used_drones.view.*
 import team.corpore.`in`.mcdmobile.R
+import team.corpore.`in`.mcdmobile.net.model.UsedDronesModelResponse
 
-class UsedDronesRecyclerAdapter(list: ArrayList<String>, clickListener: DroneListener) : RecyclerView.Adapter<UsedDronesRecyclerAdapter.VH>() {
+class UsedDronesRecyclerAdapter(list: ArrayList<UsedDronesModelResponse>, clickListener: DroneListener) : RecyclerView.Adapter<UsedDronesRecyclerAdapter.VH>() {
 
     interface DroneListener {
         fun onDroneClick(position: Int)
     }
 
-    private var listDrones = ArrayList<String>()
+    private var listDrones = ArrayList<UsedDronesModelResponse>()
     private var clickListener: DroneListener
 
     init {
@@ -21,8 +22,10 @@ class UsedDronesRecyclerAdapter(list: ArrayList<String>, clickListener: DroneLis
         this.clickListener = clickListener
     }
 
-    fun setData(list: ArrayList<String>) {
-        listDrones = list
+    fun setData(list: ArrayList<UsedDronesModelResponse>) {
+        listDrones.clear()
+        listDrones.addAll(list)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -35,7 +38,8 @@ class UsedDronesRecyclerAdapter(list: ArrayList<String>, clickListener: DroneLis
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         with (holder.itemView) {
-            droneNameTV.text = listDrones[position]
+            droneNameTV.text = listDrones[position].name
+            dateTV.text = listDrones[position].datetime.toString()
         }
     }
 

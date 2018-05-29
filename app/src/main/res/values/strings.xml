@@ -23,4 +23,9 @@
     <string name="surname_label">Surname:</string>
 
     <string name="test_value">Value</string>
+
+    <string name="drone_movement">Drone Movement</string>
+
+    <string name="image_map">Image map</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

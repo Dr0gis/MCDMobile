@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_blue_green"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.activites.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_box_radius"
+        android:layout_margin="@dimen/padding_layout">
+
+        <TextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/drone_movement"
+            android:textSize="@dimen/text_size_middle"
+            android:textColor="@color/color_text_black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="@dimen/size16dp"
+            android:paddingBottom="@dimen/size16dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <fragment
+            android:id="@+id/mapF"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_below="@+id/titleTV"
+            android:layout_centerInParent="true"
+            map:cameraBearing="0"
+            map:cameraTargetLat="50.015271"
+            map:cameraTargetLng="36.227863"
+            map:cameraTilt="0"
+            map:cameraZoom="14"
+            map:mapType="normal"
+            map:uiCompass="false"
+            map:uiRotateGestures="false"
+            map:uiScrollGestures="false"
+            map:uiTiltGestures="false"
+            map:uiZoomControls="false"
+            map:uiZoomGestures="false"
+            android:layout_marginTop="@dimen/size16dp"/>
+        
+        <team.corpore.in.mcdmobile.ui.views.DrawMovementView
+            android:id="@+id/wayDroneDMV"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_alignStart="@+id/mapF"
+            android:layout_alignTop="@+id/mapF"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

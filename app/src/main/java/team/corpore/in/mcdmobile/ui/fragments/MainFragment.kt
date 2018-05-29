@@ -1,27 +1,50 @@
 package team.corpore.`in`.mcdmobile.ui.fragments
 
+import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import team.corpore.`in`.mcdmobile.R
+import team.corpore.`in`.mcdmobile.net.RetrofitClient
+import team.corpore.`in`.mcdmobile.net.model.UsedDronesModelResponse
 import team.corpore.`in`.mcdmobile.ui.activites.BarcodeReaderActivity
+import team.corpore.`in`.mcdmobile.ui.activites.DroneMovementActivity
 import team.corpore.`in`.mcdmobile.ui.adapters.UsedDronesRecyclerAdapter
+import team.corpore.`in`.mcdmobile.utils.SharedUtils
 
 class MainFragment : MainBaseFragment() {
 
-    override fun getViewId(): Int = R.layout.fragment_main
+    var usedDronesRecyclerAdapter : UsedDronesRecyclerAdapter? = null
+    val usedDronesList = ArrayList<UsedDronesModelResponse>()
 
-    override fun init() {
-        val usedDronesList = ArrayList<String>()
-        usedDronesList.add("item 1")
-        usedDronesList.add("item 2")
-        usedDronesList.add("item 3")
-        usedDronesList.add("item 4")
-        usedDronesList.add("item 5")
+    override fun getViewId() = R.layout.fragment_main
 
-        usedDronesRV.adapter = UsedDronesRecyclerAdapter(usedDronesList, object : UsedDronesRecyclerAdapter.DroneListener {
-            override fun onDroneClick(position: Int) {
+    override fun onResume() {
+        super.onResume()
 
+        RetrofitClient.getInstance().getService().getUsedDrones(SharedUtils.getToken()).enqueue(object: Callback<ArrayList<UsedDronesModelResponse>> {
+            override fun onFailure(call: Call<ArrayList<UsedDronesModelResponse>>, t: Throwable) {
+                Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
+            }
+            override fun onResponse(call: Call<ArrayList<UsedDronesModelResponse>>, response: Response<ArrayList<UsedDronesModelResponse>>) {
+                if (response.isSuccessful) {
+                    usedDronesRecyclerAdapter!!.setData(response.body()!!)
+                }
+                else {
+                    Toast.makeText(context, response.message() + " | " + response.errorBody()!!.string() + " | ", Toast.LENGTH_SHORT).show()
+                }
             }
         })
+    }
+
+    override fun init() {
+        usedDronesRecyclerAdapter = UsedDronesRecyclerAdapter(usedDronesList, object : UsedDronesRecyclerAdapter.DroneListener {
+            override fun onDroneClick(position: Int) {
+                DroneMovementActivity.openActivity(context!!, usedDronesList[position].idDroneActivation)
+            }
+        })
+        usedDronesRV.adapter = usedDronesRecyclerAdapter
 
         activateDroneACB.setOnClickListener {
             BarcodeReaderActivity.openActivity(context!!)
